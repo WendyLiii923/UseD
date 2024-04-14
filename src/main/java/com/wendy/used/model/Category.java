@@ -11,8 +11,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import lombok.Data;
+
+@Data
 @Entity
-@Table(name = "used_category")
+@Table(name = "category")
 public class Category {
 	
 	@Id
@@ -21,63 +24,13 @@ public class Category {
 	private Integer id;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd hh:mm")
-	@Column(name = "createTime")
+	@Column(name = "create_time")
 	private Timestamp createTime = new Timestamp(System.currentTimeMillis());
 	
 	@Column(name = "name")
 	private String name;
 
-	@Column(name = "parentId")
+	@Column(name = "parent_id")
 	private Integer parentId;
-	
-	public Category() {
-		
-	}
-	
-	public Category(Timestamp createTime, Integer id, String name, Integer parentId) {
-		this.id = id;
-		this.createTime = createTime;
-		this.name = name;
-		this.parentId = parentId;
-		}
-
-	public Integer getId() {
-		return id;
-	}
-	
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	public Timestamp getCreateTime() {
-		return createTime;
-	}
-
-
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Integer getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Integer parentId) {
-		this.parentId = parentId;
-	}
-
-	@Override
-	public String toString() {
-		return "UsedCategory [createTime=" + createTime + ", id=" + id + ", name=" + name + ", parentId=" + parentId
-				+ "]";
-	}
 	
 }
