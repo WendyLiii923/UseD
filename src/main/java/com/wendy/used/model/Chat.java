@@ -11,8 +11,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import lombok.Data;
+
+@Data
 @Entity
-@Table(name = "used_chat")
+@Table(name = "chat")
 public class Chat {
 	
 	@Id
@@ -21,76 +24,16 @@ public class Chat {
 	private Integer id;
 
 	@JsonFormat(pattern = "yyyy-MM-dd hh:mm")
-	@Column(name = "createTime")
+	@Column(name = "create_time")
 	private Timestamp createTime = new Timestamp(System.currentTimeMillis());
 
-	@Column(name = "fromId")
+	@Column(name = "from_id")
 	private Integer fromId;
 
-	@Column(name = "toId")
+	@Column(name = "to_id")
 	private Integer toId;
 
 	@Column(name = "content")
 	private String content;
 	
-	public Chat() {
-		
-	}
-
-	public Chat(Integer id, Timestamp createTime, Integer fromId, Integer toId, String content) {
-		super();
-		this.id = id;
-		this.createTime = createTime;
-		this.fromId = fromId;
-		this.toId = toId;
-		this.content = content;
-	}
-	
-
-	public Integer getId() {
-		return id;
-	}
-	
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Timestamp getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
-
-	public Integer getFromId() {
-		return fromId;
-	}
-
-	public void setFromId(Integer fromId) {
-		this.fromId = fromId;
-	}
-
-	public Integer getToId() {
-		return toId;
-	}
-
-	public void setToId(Integer toId) {
-		this.toId = toId;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	@Override
-	public String toString() {
-		return "UsedChat [id=" + id + ", createTime=" + createTime + ", fromId=" + fromId + ", toId=" + toId
-				+ ", content=" + content + "]";
-	}
-
 }
