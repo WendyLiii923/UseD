@@ -11,8 +11,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import lombok.Data;
+
+@Data
 @Entity
-@Table(name = "used_cart")
+@Table(name = "cart")
 public class Cart {
 	
 	@Id
@@ -21,62 +24,13 @@ public class Cart {
 	private Integer id;
 
 	@JsonFormat(pattern = "yyyy-MM-dd hh:mm")
-	@Column(name = "createTime")
+	@Column(name = "create_time")
 	private Timestamp createTime = new Timestamp(System.currentTimeMillis());
+	
+	@Column(name = "member_id")
+	private Integer memberId;
 
 	@Column(name = "status")
 	private Boolean status;
-	
-	@Column(name = "memberId")
-	private Integer memberId;
-	
-	public Cart() {
-		
-	}
-	
-	public Cart(Integer id, Timestamp createTime, Boolean status, Integer memberId) {
-		this.id = id;
-		this.createTime = createTime;
-		this.status = status;
-		this.memberId = memberId;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
-	
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	public Timestamp getCreateTime() {
-		return createTime;
-	}
-	
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
-	
-	public Boolean getStatus() {
-		return status;
-	}
-	
-	public void setStatus(Boolean status) {
-		this.status = status;
-	}
-	
-	public Integer getMemberId() {
-		return memberId;
-	}
-	
-	public void setMemberId(Integer memberId) {
-		this.memberId = memberId;
-	}
-	
-	@Override
-	public String toString() {
-		return "UsedCart [id=" + id + ", createTime=" + createTime + ", status=" + status + ", memberId=" + memberId
-				+ "]";
-	}
 	
 }
