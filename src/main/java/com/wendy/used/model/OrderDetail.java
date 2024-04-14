@@ -11,8 +11,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import lombok.Data;
+
+@Data
 @Entity
-@Table(name = "used_orderDetail")
+@Table(name = "orderDetail")
 public class OrderDetail {
 
 	@Id
@@ -21,77 +24,16 @@ public class OrderDetail {
 	private Integer id;
 
 	@JsonFormat(pattern = "yyyy-MM-dd hh:mm")
-	@Column(name = "createTime")
+	@Column(name = "create_time")
 	private Timestamp createTime = new Timestamp(System.currentTimeMillis());
 	
-	@Column(name = "orderId")
+	@Column(name = "order_id")
 	private Integer orderId;
 	
-	@Column(name = "productId")
+	@Column(name = "product_id")
 	private Integer productId;
 
-	@Column(name = "productQty")
+	@Column(name = "product_qty")
 	private Integer productQty;
-	
-	
-	public OrderDetail() {
-		
-	}
 
-	public OrderDetail(Integer id, Timestamp createTime, Integer orderId, Integer productId, Integer productQty) {
-		super();
-		this.id = id;
-		this.createTime = createTime;
-		this.orderId = orderId;
-		this.productId = productId;
-		this.productQty = productQty;
-	}
-
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Timestamp getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
-
-	public Integer getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(Integer orderId) {
-		this.orderId = orderId;
-	}
-
-	public Integer getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
-	
-	public Integer getProductQty() {
-		return productQty;
-	}
-	
-	public void setProductQty(Integer productQty) {
-		this.productQty = productQty;
-	}
-
-	@Override
-	public String toString() {
-		return "UsedOrderDetail [id=" + id + ", createTime=" + createTime + ", orderId=" + orderId + ", productId="
-				+ productId + ", productQty=" + productQty + "]";
-	}
-	
 }
