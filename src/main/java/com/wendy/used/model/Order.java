@@ -17,7 +17,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "used_order")
+@Table(name = "order")
 public class Order {
 	
 	@Id
@@ -26,17 +26,17 @@ public class Order {
 	private Integer id;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd hh:mm")
-	@Column(name = "createTime")
+	@Column(name = "create_time")
 	private Timestamp createTime = new Timestamp(System.currentTimeMillis());
 	
-	@Column(name = "memberId")
+	@Column(name = "member_id")
 	private Integer memberId;
 	
-	@Column(name = "totalPrice")
-	private Integer totalPrice;
-	
-	@Column(name = "shippingFee")
+	@Column(name = "shipping_fee")
 	private Integer shippingFee;
+	
+	@Column(name = "total_price")
+	private Integer totalPrice;
 	
 	@Column(name = "email")
 	private String email;
