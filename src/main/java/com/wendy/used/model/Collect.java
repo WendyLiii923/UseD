@@ -11,8 +11,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import lombok.Data;
+
+@Data
 @Entity
-@Table(name ="used_collect")
+@Table(name ="collect")
 public class Collect {
 	
 	@Id
@@ -21,68 +24,13 @@ public class Collect {
 	private Integer id;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd hh:mm")
-	@Column(name = "createTime")
+	@Column(name = "create_time")
 	private Timestamp createTime = new Timestamp(System.currentTimeMillis());
 	
-	@Column(name = "memberId")
+	@Column(name = "member_id")
 	private Integer memberId;
 
-	@Column(name = "productId")
+	@Column(name = "product_id")
 	private Integer productId;
-	
-	public Collect() {
-		
-	}
-
-	public Collect(Integer id, Timestamp createTime, Integer memberId, Integer productId) {
-		super();
-		this.id = id;
-		this.createTime = createTime;
-		this.memberId = memberId;
-		this.productId = productId;
-	}
-
-
-	public Integer getId() {
-		return id;
-	}
-
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Timestamp getCreateTime() {
-		return createTime;
-	}
-
-
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
-
-	public Integer getMemberId() {
-		return memberId;
-	}
-
-
-	public void setMemberId(Integer memberId) {
-		this.memberId = memberId;
-	}
-
-	public Integer getProductId() {
-		return productId;
-	}
-
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
-
-	@Override
-	public String toString() {
-		return "UsedCollect [id=" + id + ", createTime=" + createTime + ", memberId=" + memberId + ", productId="
-				+ productId + "]";
-	}
 	
 }
